@@ -2,6 +2,9 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google Font -->
+
+<link rel="shortcut icon" href="{{ asset('assets/images/logo_pendek.png') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 <!-- Css Styles -->
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
@@ -35,6 +38,7 @@
 @yield('content')
 </body>
 
+@yield('styles-js')
 @include('layouts.footer')
 
 </html>

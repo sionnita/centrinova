@@ -1,12 +1,12 @@
 
-<header class="header-section">
+<header class="header-section bg-warning">
 
     <div class="container">
         <div class="inner-header">
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="logo">
-                        <a href="#">
+                        <a href="{{url('/')}}" class=" text-white">
                             Centrinova
                         </a>
                     </div>
@@ -21,17 +21,26 @@
                 </div>
                 <div class="col-lg-3 text-right col-md-3">
                     <ul class="nav-right">
-                        <li class="heart-icon">
-                            @if(Auth::check())
-                                <a href="{{url('dashboard/')}}">
-                                    <i class="fa fa-user"></i>
-                                    {{Auth::user()->name}}
+                        @if(Auth::check())
+
+                            <li class="heart-icon">
+                            <a href="{{url('dashboard/')}}"  class="text-white">
+                                <i class="fa fa-user"></i>
+                                {{Auth::user()->name}}
+                            </a>
+                            </li>
+                            <li class="heart-icon">
+                                <a href="{{url('logout')}}"  class="text-white">
+                                    <i class="fa fa-sign-out"></i>Logout
                                 </a>
-                            @else
-                                <a href="{{url('sign_in/')}}">
+                            </li>
+                        @else
+                        <li class="heart-icon">
+                                <a href="{{url('sign_in/')}}" class="text-white">
                                     <i class="fa fa-user"></i>
                                     Login
                                 </a>
+                        </li>
                             @endif
                         </li>
 
@@ -41,20 +50,5 @@
             </div>
         </div>
     </div>
-    <div class="nav-item">
-        <div class="container">
 
-            <nav class="nav-menu mobile-menu">
-                <ul>
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Collection</a>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Pages</a></li>
-                </ul>
-            </nav>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </div>
 </header>

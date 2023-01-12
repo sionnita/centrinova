@@ -1,28 +1,10 @@
 @if (Session::has('failed'))
-    <!--begin::Alert-->
-    <div class="alert alert-dismissible bg-light-danger d-flex flex-column flex-sm-row p-5 mb-10">
-        <!--begin::Icon-->
-        <span class="svg-icon svg-icon-2hx svg-icon-primary me-4 mb-5 mb-sm-0"><i class="fonticon-alarm"></i></span>
-        <!--end::Icon-->
-
-        <!--begin::Wrapper-->
-        <div class="d-flex flex-column pe-0 pe-sm-10">
-            <!--begin::Title-->
-            <h4 class="fw-semibold">Warning</h4>
-            <!--end::Title-->
-            <!--begin::Content-->
-            <span>{{ Session::get('failed') }}</span>
-            <!--end::Content-->
-        </div>
-        <!--end::Wrapper-->
-
-        <!--begin::Close-->
-        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
-            <span class="svg-icon svg-icon-1 svg-icon-primary">...</span>
+    <div class="alert alert-danger" role="alert">
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+            <i class="fas fa-window-close"></i>
         </button>
-        <!--end::Close-->
+        {{ Session::get('failed') }}
     </div>
-    <!--end::Alert-->
 @endif
 
 

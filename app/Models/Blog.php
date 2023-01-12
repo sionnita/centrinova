@@ -13,11 +13,17 @@ class Blog extends Model
         'user_id',
         'title',
         'content',
+        'image',
         'status'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'blog_id');
     }
 }

@@ -75,4 +75,11 @@ class LoginController extends Controller
         $request->session()->flash('failed', 'not clear');
         return redirect()->back();
     }
+
+    public function logout(){
+        Session::flush();
+
+        Auth::logout();
+        return redirect('/');
+    }
 }

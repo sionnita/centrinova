@@ -45,6 +45,13 @@
                                     <span data-key="t-dashboard">Blog</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle arrow-none" href="{{url('slides/')}}" id="topnav-dashboard" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bx bx-image-add"></i>
+                                    <span data-key="t-dashboard">Image Slide</span>
+                                </a>
+                            </li>
 
 
                         </ul>
@@ -66,8 +73,8 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
                     <h6 class="dropdown-header">Welcome {{Session::get('name')}}!</h6>
-                    <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
-                    <a class="dropdown-item" href="{{asset('logout')}}"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Logout</span></a>
+                    <a class="dropdown-item" href="{{url('profile/')}}"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                    <a class="dropdown-item" href="{{url('logout')}}"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Logout</span></a>
                 </div>
             </div>
         </div>
