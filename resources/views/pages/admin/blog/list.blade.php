@@ -11,8 +11,9 @@
                 <div class="card-header bg-purple  d-flex">
                     <h4 class="card-title text-white col-10">List Blog</h4>
                     <div class=" col-2 ">
-                        <a type="button" class="btn btn-icon rounded-circle btn-outline-light mr-1 mb-1" href="{{url('blog/insert')}}"><i
-                                class="bx bx-add-to-queue text-white"></i></a>
+                        <a type="button" class="btn btn-icon rounded-circle btn-outline-light mr-1 mb-1"
+                           href="{{url('blog/insert')}}">
+                            <i class="bx bx-add-to-queue text-white"></i></a>
                     </div>
                 </div><!-- end card header -->
                 <div class="row">
@@ -23,6 +24,9 @@
                                 <th width="3%">#</th>
                                 <th width="30%">Title</th>
                                 <th width="30%" >Content</th>
+                                @if(Auth::user() -> hasRole('admin'))
+                                <th >Writer</th>
+                                @endif
                                 <th class="text-center">Date</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Action</th>
@@ -35,6 +39,9 @@
                                     <td>{{$value->title}}<br>
                                         <img class="w-20px h-20px" src="{{$value->image? asset($value->image) : null}}" alt="" height="200px"/></td>
                                     <td>{!! substr(strip_tags($value->content),0,200) !!}</td>
+                                    @if(Auth::user() -> hasRole('admin'))
+                                        <td>{{$value->user->name}}</td>
+                                    @endif
                                     <td class="text-center">{{date('d M Y', strtotime($value->created_at))}}</td>
                                     <td class="text-center">
                                         @if($value->status == "view")
@@ -54,8 +61,11 @@
                                             <a type="button" class="btn-sm btn-icon btn-success mr-1 mb-1 mt-2" href="{{ route('blog.status', $value->id) }}"><i
                                                     class="bx bx-pencil"></i> View</a>
                                         @endif
+
+                                        @if(Auth::user() -> hasRole('admin'))
                                         <a type="button" class="btn-sm btn-icon btn-danger mr-1 mb-1 mt-2" href="{{ route('blog.delete', $value->id) }}"><i
                                             class="bx bx-window-close"></i> Delete </a>
+                                        @endif
                                         <a type="button" class="btn-sm btn-icon btn-active-info mr-1 mb-1 mt-2" href="{{ route('comment.admin.list-comment', $value->id) }}"><i
                                                 class="bx bx-pen"></i> View Comment <span>{{$value -> comment->count()}}</span> </a>
                                     </td>
@@ -63,7 +73,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="text-center">No data available in table</td>
+                                    <td colspan="7" class="text-center">No data available in table</td>
                                 </tr>
                             @endforelse
                             </tbody>

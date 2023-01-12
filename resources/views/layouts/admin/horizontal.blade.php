@@ -45,6 +45,7 @@
                                     <span data-key="t-dashboard">Blog</span>
                                 </a>
                             </li>
+                            @if(Auth::user() -> hasRole('admin'))
                             <li class="nav-item">
                                 <a class="nav-link dropdown-toggle arrow-none" href="{{url('slides/')}}" id="topnav-dashboard" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,8 +53,7 @@
                                     <span data-key="t-dashboard">Image Slide</span>
                                 </a>
                             </li>
-
-
+                            @endif
                         </ul>
                     </div>
                 </nav>

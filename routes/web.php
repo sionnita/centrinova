@@ -76,3 +76,6 @@ Route::group(['prefix' => 'slides', 'as' => 'slides.'], function () {
         ->name
         ('status');
 });
+
+Route::resource('roles', RolesController::class);
+Route::resource('permissions', PermissionsController::class);

@@ -7,6 +7,8 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class ProfileController extends Controller
 {
@@ -63,4 +65,6 @@ class ProfileController extends Controller
             return redirect()->back();
         }
     }
+
+
 }

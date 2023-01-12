@@ -53,9 +53,10 @@
                                             <a type="button" class="btn-sm btn-icon btn-success mr-1 mb-1 mt-2" href="{{ route('comment.admin.status', $value->id) }}"><i
                                                     class="bx bx-pencil"></i> View</a>
                                         @endif
+                                        @if(Auth::user() -> hasRole('admin'))
                                         <a type="button" class="btn-sm btn-icon btn-danger mr-1 mb-1 mt-2" href="{{ route('comment.admin.delete', $value->id) }}"><i
                                             class="bx bx-window-close"></i> Delete </a>
-
+                                           @endif
                                     </td>
 
                                 </tr>
